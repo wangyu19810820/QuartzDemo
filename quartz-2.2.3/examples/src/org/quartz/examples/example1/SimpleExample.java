@@ -55,7 +55,7 @@ public class SimpleExample {
 
     log.info("------- Scheduling Job  -------------------");
 
-    // define the job and tie it to our HelloJob class
+    // define the job and tie it to our StoreTxJob class
     JobDetail job = newJob(HelloJob.class).withIdentity("job1", "group1").build();
 
     // Trigger the job to run on the next round minute

@@ -191,7 +191,7 @@ public abstract class RemoteMBeanScheduler implements Scheduler {
                 new String[] {
                     "SchedulerName",
                     "SchedulerInstanceId",
-                    "StandbyMode",
+                    "StandbyModeExample",
                     "Shutdown",
                     "JobStoreClassName",
                     "ThreadPoolClassName",
@@ -290,7 +290,7 @@ public abstract class RemoteMBeanScheduler implements Scheduler {
      * </p>
      */
     public boolean isInStandbyMode() throws SchedulerException {
-        return (Boolean)getAttribute("StandbyMode");
+        return (Boolean)getAttribute("StandbyModeExample");
     }
 
     /**
