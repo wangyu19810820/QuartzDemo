@@ -150,6 +150,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>2.7.4</version>
@@ -186,5 +192,24 @@
 
   <build>
     <finalName>QuartzDemo</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>rebel.xml</exclude>
+          <exclude>mybatis-generator.xml</exclude>
+        </excludes>
+      </resource>
+
+    </resources>
+
   </build>
 </project>

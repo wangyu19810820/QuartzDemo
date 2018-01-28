@@ -30,21 +30,26 @@
 		</property>
 	</bean>
 
-	<!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-		<!--<property name="driverClassName"><value>${db.driver.class}</value></property>-->
-		<!--<property name="url"><value>${db.url}</value></property>-->
-		<!--<property name="username"><value>${db.username}</value></property>-->
-		<!--<property name="password"><value>${db.password}</value></property>-->
-	<!--</bean>-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"><value>${db.driver.class}</value></property>
+		<property name="url"><value>${db.url}</value></property>
+		<property name="username"><value>${db.username}</value></property>
+		<property name="password"><value>${db.password}</value></property>
+	</bean>
 
-	<!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-		<!--<property name="dataSource" ref="dataSource"></property>-->
-	<!--</bean>-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 
-	<!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-		<!--<property name="dataSource" ref="dataSource" />-->
-		<!--&lt;!&ndash; configLocation：用于指定Mybatis的配置文件位置 &ndash;&gt;-->
-		<!--<property name="mapperLocations" value="classpath*:com/hsnn/basic/common/mappers/sqlserver/**/*.xml"></property>-->
-	<!--</bean>-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- configLocation：用于指定Mybatis的配置文件位置 -->
+		<property name="mapperLocations" value="classpath:com/spring/mapper/*.xml"></property>
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.spring.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
 
 </beans>

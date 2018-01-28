@@ -15,7 +15,7 @@
     <form action="/job/add" method="post">
         jobName:<input name="name"><br/>
         jobGroup:<input name="group"><br/>
-        jobTrigger:<input name="trigger"><br/>
+        jobTrigger:<input name="trigger" value="0/10 * * * * ?"><br/>
         <input type="submit">
     </form>
 </body>
