@@ -45,7 +45,16 @@
         <property name="repeatCount" value="0" />
     </bean>
 
-    <bean  class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <!--tomcat下可能会有重复运行两次作业的现象，网上说有两种解决方案：-->
+    <!--1.改tomcat配置文件autoDeploy="false" deployOnStartup="false" 这样的话，在tomcat启动时，不会自动发布appBase下的应用，启动后也不会自动发步appBase下的应用-->
+    <!--2.只在DispatcherServlet的init-param中配置spring-quartz.xml，不在spring的contextConfigLocation中配置-->
+    <!--但是，这次是深度集成spring和quartz，要在service层中同时操作quartz和普通dao，并用事务捆绑两者同时成功或失败-->
+    <!--所以第二种方案无法正常运行，可考虑第一种方案-->
+    <!--<Host name="localhost"  appBase="webapps"-->
+          <!--unpackWARs="true" autoDeploy="false" deployOnStartup="false">-->
+        <!--<Context path="" docBase="/eugeneqiu_test" debug="0" reloadable="true"/>-->
+    <!--</Host>-->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="triggers">
             <list>
