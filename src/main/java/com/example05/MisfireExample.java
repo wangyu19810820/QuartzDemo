@@ -37,8 +37,10 @@ public class MisfireExample {
         JobDetail job = newJob(StatefulDumbJob.class).withIdentity("statefulJob1", "group1")
                 .usingJobData(StatefulDumbJob.EXECUTION_DELAY, 10000L).build();
 
-        SimpleTrigger trigger = newTrigger().withIdentity("trigger1", "group1").startAt(startTime)
-                .withSchedule(simpleSchedule().withIntervalInSeconds(3).repeatForever()).build();
+        SimpleTrigger trigger = newTrigger().withIdentity("trigger1", "group1")
+                                            .startAt(startTime)
+                                            .withSchedule(simpleSchedule().withIntervalInSeconds(3).repeatForever())
+                                            .build();
 
         Date ft = sched.scheduleJob(job, trigger);
         log.info(job.getKey() + " will run at: " + ft + " and repeat: " + trigger.getRepeatCount() + " times, every "
