@@ -13,8 +13,8 @@
 <body>
     Add
     <form action="/job/add" method="post">
-        jobName:<input name="name"><br/>
-        jobGroup:<input name="group"><br/>
+        jobName:<input name="name" value="job1"><br/>
+        jobGroup:<input name="group" value="group1"><br/>
         jobTrigger:<input name="trigger" value="0/10 * * * * ?"><br/>
         <input type="submit">
     </form>

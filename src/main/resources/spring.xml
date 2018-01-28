@@ -20,8 +20,9 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 
-	<bean
-			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<tx:annotation-driven />
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
 				<!-- 标准配置 -->

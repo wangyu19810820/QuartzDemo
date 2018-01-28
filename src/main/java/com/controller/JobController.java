@@ -54,7 +54,7 @@ public class JobController {
         jobModel.setCronTriggerExpr(map.get("trigger"));
 
         SysUser sysUser = new SysUser();
-        sysUser.setId(UUID.randomUUID().toString() + "aaaaaaaaaaaaaaaaaaaaaaaaa");
+        sysUser.setId(UUID.randomUUID().toString());
         sysUser.setName("aa");
         demoService.addJob(jobModel, sysUser);
     }

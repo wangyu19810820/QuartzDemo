@@ -16,6 +16,10 @@ public class SpringQuartzJob extends QuartzJobBean {
 
     private static Logger _log = LogManager.getLogger(SpringQuartzJob.class);
 
+    public SpringQuartzJob() {
+        _log.info("SpringQuartzJob init");
+    }
+
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
 //        String paramString = context.getMergedJobDataMap().getString("param");

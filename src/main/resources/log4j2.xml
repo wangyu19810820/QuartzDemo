@@ -11,9 +11,14 @@
         </Console>
     </Appenders>
 
+    <File name="trace" fileName="${LOG_HOME}/trace.log" append="false">
+        <PatternLayout pattern="%d{YYYY-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </File>
+
     <Loggers>
         <Root level="trace">
             <AppenderRef ref="console"/>
+            <AppenderRef ref="trace"/>
         </Root>
     </Loggers>
 

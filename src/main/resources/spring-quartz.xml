@@ -38,16 +38,23 @@
         <property name="cronExpression" value="0/5 * * * * ?" />
     </bean>
 
+    <bean id="helloJobSimpleTrigger"  class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="helloJobDetail" />
+        <property name="startDelay" value="500" />
+        <property name="repeatInterval" value="0" />
+        <property name="repeatCount" value="0" />
+    </bean>
+
     <bean  class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
         <property name="triggers">
             <list>
                 <!--<ref bean="helloJobTrigger" />-->
+                <ref bean="helloJobSimpleTrigger" />
             </list>
         </property>
         <property name="applicationContextSchedulerContextKey" value="applicationContextKey"/>
-        <property name="configLocation" value="classpath:quartz1.properties"/>
+        <property name="configLocation" value="classpath:quartz2.properties"/>
     </bean>
-
-
 
 </beans>

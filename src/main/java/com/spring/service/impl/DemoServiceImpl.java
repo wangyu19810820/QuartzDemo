@@ -41,6 +41,8 @@ public class DemoServiceImpl implements DemoService {
             throw new RuntimeException("add job exception");
         }
 
+//        SysUser sysUser1 = new SysUser("a", "b");
+//        sysUserDao.insert(sysUser1);
         sysUserDao.insert(sysUser);
     }
 }
