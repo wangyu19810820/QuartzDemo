@@ -31,7 +31,7 @@ public class ListenerExample {
 //        Matcher<JobKey> matcher = GroupMatcher.groupEquals("group1");
 //        Matcher<JobKey> matcher = KeyMatcher.keyEquals(JobKey.jobKey("job1", "group1"));
         Matcher<JobKey> matcher = EverythingMatcher.allJobs();
-//        scheduler.getListenerManager().addJobListener(listener, matcher);
+        scheduler.getListenerManager().addJobListener(listener, matcher);
 
         scheduler.scheduleJob(job1, trigger1);
         scheduler.scheduleJob(job2, trigger2);

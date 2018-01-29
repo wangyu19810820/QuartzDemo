@@ -14,7 +14,7 @@ import org.quartz.UnableToInterruptJobException;
  */
 public class InterruptJob implements InterruptableJob {
 
-    private static Logger _log = LogManager.getLogger(ExceptionJob.class);
+    private static Logger _log = LogManager.getLogger(InterruptJob.class);
     private boolean interrupt = false;
 
     @Override
