@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
+import static org.quartz.JobKey.jobKey;
+
 @Service
 public class DemoServiceImpl implements DemoService {
 
@@ -45,4 +47,14 @@ public class DemoServiceImpl implements DemoService {
 //        sysUserDao.insert(sysUser1);
         sysUserDao.insert(sysUser);
     }
+
+    @Transactional
+    public void deleteJob(JobModel jobModel) {
+        try {
+//        scheduler.unscheduleJob(triggerKey("trigger1", "group1"));
+            scheduler.deleteJob(jobKey(jobModel.getName(), jobModel.getGroup()));
+        } catch (SchedulerException e) {
+        }
+    }
+
 }

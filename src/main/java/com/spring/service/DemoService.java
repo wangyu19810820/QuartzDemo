@@ -9,4 +9,6 @@ public interface DemoService {
 
     void exec(Map<String, String> map);
     void addJob(JobModel jobModel, SysUser sysUser);
+    void deleteJob(JobModel jobModel);
+
 }

@@ -59,7 +59,7 @@
         <property name="triggers">
             <list>
                 <!--<ref bean="helloJobTrigger" />-->
-                <ref bean="helloJobSimpleTrigger" />
+                <!--<ref bean="helloJobSimpleTrigger" />-->
             </list>
         </property>
         <property name="applicationContextSchedulerContextKey" value="applicationContextKey"/>
