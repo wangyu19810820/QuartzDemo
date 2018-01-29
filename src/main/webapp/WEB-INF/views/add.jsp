@@ -18,5 +18,22 @@
         jobTrigger:<input name="cronTriggerExpr" value="0/10 * * * * ?"><br/>
         <input type="submit">
     </form>
+
+    Delete
+    <form action="/job/delete" method="post">
+        jobName:<input name="name" value="job1"><br/>
+        jobGroup:<input name="group" value="group1"><br/>
+        jobTrigger:<input name="cronTriggerExpr" value="0/10 * * * * ?"><br/>
+        <input type="submit">
+    </form>
+
+    UpdateTrigger
+    <form action="/job/updateTrigger" method="post">
+        jobName:<input name="name" value="job1"><br/>
+        jobGroup:<input name="group" value="group1"><br/>
+        jobTrigger:<input name="cronTriggerExpr" value="0/20 * * * * ?"><br/>
+        <input type="submit">
+    </form>
+
 </body>
 </html>

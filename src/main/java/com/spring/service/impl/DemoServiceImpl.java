@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Map;
 
 import static org.quartz.JobKey.jobKey;
+import static org.quartz.TriggerKey.triggerKey;
 
 @Service
 public class DemoServiceImpl implements DemoService {
@@ -57,4 +58,15 @@ public class DemoServiceImpl implements DemoService {
         }
     }
 
+    @Transactional
+    public void updateTrigger(JobModel jobModel) {
+        try {
+            Trigger trigger = TriggerBuilder.newTrigger()
+                                            .withIdentity("trigger1", "group1")
+                                            .withSchedule(CronScheduleBuilder.cronSchedule(jobModel.getCronTriggerExpr()))
+                                            .build();
+            scheduler.rescheduleJob(triggerKey("trigger1", "group1"), trigger);
+        } catch (SchedulerException e) {
+        }
+    }
 }

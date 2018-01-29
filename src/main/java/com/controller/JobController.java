@@ -25,11 +25,13 @@ public class JobController {
     @Autowired
     private DemoService demoService;
 
+    // job操作页面
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add() {
         return "add";
     }
 
+    // 添加job
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String addSubmit(@RequestParam Map<String,String> map) throws Exception {
 //        try {
@@ -41,10 +43,24 @@ public class JobController {
         return "add";
     }
 
+    // 删除job
     @RequestMapping(value = "delete", method = RequestMethod.POST)
     public String deleteSubmit(@RequestParam Map<String,String> map) throws Exception {
         deleteJobByService(map);
         return "add";
+    }
+
+    // 更新job触发条件
+    @RequestMapping(value = "updateTrigger", method = RequestMethod.POST)
+    public String updateTriggerSubmit(@RequestParam Map<String,String> map) throws Exception {
+        updateTriggerByService(map);
+        return "add";
+    }
+
+    private void updateTriggerByService(Map<String,String> map) throws Exception {
+        JobModel jobModel = new JobModel();
+        BeanUtils.populate(jobModel, map);
+        demoService.updateTrigger(jobModel);
     }
 
     private void deleteJobByService(Map<String,String> map) throws Exception {
