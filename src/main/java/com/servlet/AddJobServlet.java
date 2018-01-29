@@ -1,6 +1,5 @@
 package com.servlet;
 
-import com.example01.HelloJob;
 import com.example02.SimpleJob;
 import org.quartz.*;
 import org.quartz.ee.servlet.QuartzInitializerListener;
@@ -12,8 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 
+/**
+ * Quartz和web单独集成的例子
+ * 获取SchedulerFactory，获取Scheduler，添加Job
+ */
 public class AddJobServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +32,7 @@ public class AddJobServlet extends HttpServlet {
 //            String key = "org.quartz.impl.StdSchedulerFactory.KEY";
             String key = QuartzInitializerListener.QUARTZ_FACTORY_KEY;
             ServletContext ctx = request.getServletContext();
-            StdSchedulerFactory factory = (StdSchedulerFactory) ctx.getAttribute(key);
+            SchedulerFactory factory = (SchedulerFactory) ctx.getAttribute(key);
             Scheduler scheduler = factory.getScheduler();
 //            addInterruptJob(scheduler);
             addCronJob(scheduler);

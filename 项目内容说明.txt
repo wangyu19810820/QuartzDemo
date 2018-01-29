@@ -1,0 +1,5 @@
+
+
+com.servlet下的例子描述了
+1.Quartz和web单独集成的例子
+2.可中断的Job

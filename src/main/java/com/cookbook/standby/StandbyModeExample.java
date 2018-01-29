@@ -5,6 +5,10 @@ import org.quartz.impl.StdSchedulerFactory;
 
 import java.util.Date;
 
+/**
+ * scheduler.standby();临时中止运行，所有触发器都不再触发，可由start方法重新启动
+ * scheduler.shutdown();完全中止运行
+ */
 public class StandbyModeExample {
 
     public static void main(String[] args) throws SchedulerException {

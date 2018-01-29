@@ -4,6 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.*;
 
+/**
+ * 本例意义不大
+ * 运行出错后，抛出JobExecutionException，异常setRefireImmediately(true)
+ * 就可以重新运行该Job
+ * 具体可参看我抄录的Quartz官方example06的BadJob1,BadJob2,
+ * 设计了三种出错逻辑：立即重试，取消触发器，取消所有触发器
+ */
 public class ExceptionJob implements Job {
 
     private static Logger _log = LogManager.getLogger(ExceptionJob.class);

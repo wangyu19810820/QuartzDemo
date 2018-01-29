@@ -7,6 +7,11 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.UnableToInterruptJobException;
 
+/**
+ * 可中断的Job，重点是InterruptableJob接口和interrupt()方法
+ * scheduler.interrupt(JobKey.jobKey("job1", "group1"));触发interrupt()方法
+ * 可参考同一包下的InterruptJobServlet类doGet方法
+ */
 public class InterruptJob implements InterruptableJob {
 
     private static Logger _log = LogManager.getLogger(ExceptionJob.class);
