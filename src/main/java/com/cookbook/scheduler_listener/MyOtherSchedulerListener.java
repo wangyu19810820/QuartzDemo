@@ -28,7 +28,7 @@ public class MyOtherSchedulerListener extends SchedulerListenerSupport {
                 trigger.getKey().getName(), trigger.getKey().getGroup());
     }
 
-    // Scheduler 在有新的 JobDetail卸载时调用此方法
+    // Scheduler 在有新的 JobDetail卸载时调用此方法，
     @Override
     public void jobUnscheduled(TriggerKey triggerKey) {
         _log.info("MyOtherSchedulerListener jobUnscheduled key:{}, group: {}",
