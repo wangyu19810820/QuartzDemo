@@ -6,10 +6,14 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
+import org.quartz.impl.matchers.EverythingMatcher;
+import org.quartz.impl.matchers.GroupMatcher;
+import org.quartz.impl.matchers.KeyMatcher;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 import static org.quartz.TriggerKey.triggerKey;
+import static org.quartz.impl.matchers.EverythingMatcher.allTriggers;
 import static org.quartz.impl.matchers.GroupMatcher.groupEquals;
 
 public class MyTriggerListenerExample {
@@ -26,11 +30,11 @@ public class MyTriggerListenerExample {
         scheduler.scheduleJob(job2, trigger2);
 
         MyTriggerListener listener = new MyTriggerListener("MyTriggerListener");
-//        scheduler.getListenerManager().addTriggerListener(listener, allTriggers());
-//        scheduler.getListenerManager().addTriggerListener(
-//                listener, keyEquals(triggerKey("trigger1", "group1")));
+        scheduler.getListenerManager().addTriggerListener(listener, EverythingMatcher.allTriggers());
         scheduler.getListenerManager().addTriggerListener(
-                listener, groupEquals("group1"));
+                listener, KeyMatcher.keyEquals(triggerKey("trigger1", "group1")));
+        scheduler.getListenerManager().addTriggerListener(
+                listener, GroupMatcher.groupEquals("group1"));
 
         scheduler.start();
         try {

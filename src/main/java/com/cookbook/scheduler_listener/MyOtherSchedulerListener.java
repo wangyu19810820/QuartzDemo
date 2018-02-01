@@ -35,6 +35,7 @@ public class MyOtherSchedulerListener extends SchedulerListenerSupport {
                 triggerKey.getName(), triggerKey.getGroup());
     }
 
+    // 当一个 Trigger 来到了再也不会触发的状态时调用这个方法
     @Override
     public void triggerFinalized(Trigger trigger) {
         _log.info("MyOtherSchedulerListener triggerFinalized key:{}, group: {}",
