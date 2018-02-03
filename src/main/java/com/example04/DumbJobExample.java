@@ -6,6 +6,11 @@ import org.quartz.impl.StdSchedulerFactory;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * JobDetail和Trigger都可以向Job传递参数
+ * 两者传递的参数重名了，trigger的优先级高
+ * Job中通过getMergedJobDataMap接收所有参数
+ */
 public class DumbJobExample {
 
     public void run() throws Exception {

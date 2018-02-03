@@ -7,6 +7,11 @@ import org.quartz.impl.StdSchedulerFactory;
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+/**
+ * 插件的例子
+ * 要在quartz3.properties中配置插件，插件要实现initialize，start，shutdown方法
+ * 官方插件，一个是记录日志插件，一个从xml中加载job的插件，一个是关闭jvm前执行schedule的shutdown的插件
+ */
 public class SelfPluginExample {
 
     public static void main(String[] args) throws Exception {

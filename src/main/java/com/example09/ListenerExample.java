@@ -11,6 +11,10 @@ import org.quartz.impl.matchers.KeyMatcher;
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+/**
+ * Job监听器的例子
+ * Trigger监听器和Scheduler监听器可以参考com.cookbook里面的例子
+ */
 public class ListenerExample {
 
     private static Logger log = LogManager.getLogger(Job1Listener.class);

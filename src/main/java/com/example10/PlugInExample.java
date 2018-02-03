@@ -31,6 +31,10 @@ import org.quartz.impl.StdSchedulerFactory;
  * 
  * @author James House, Bill Kratzer
  */
+
+/**
+ * 没细看，插件的例子可以参考com.plugin里面的例子
+ */
 public class PlugInExample {
   private static Logger log = LogManager.getLogger(PlugInExample.class);
 

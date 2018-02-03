@@ -12,6 +12,11 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+/**
+ * 错过触发后，配置后续处理策略的例子
+ * 在构建Trigger的时候，配置错过触发（misfire）后的策略
+ * 需要注意配置文件配置的misfire阈值（org.quartz.jobStore.misfireThreshold）
+ */
 public class MisfireExample {
 
     private static Logger log = LogManager.getLogger(MisfireExample.class);

@@ -1,5 +1,24 @@
+com.exampleXX是官方例子的模仿
+1.example01-03是SimpleTrigger，手动触发storeDurably的job，CronTrigger的例子
+还有处理时间的工具类
+2.example04是个Job传递参数，保存参数到数据库中的例子
+3.example05是错过触发后，配置后续处理策略的例子
+4.example06是job运行出错后的执行策略
 
+com.cookbook下是官方cookbook例子的模仿
+quartz独立事务
+暂停quartz（standby）
+阻塞关闭和强制关闭
 
 com.servlet下的例子描述了
 1.Quartz和web单独集成的例子
 2.可中断的Job
+
+com.plugin下的例子描述了使用插件
+
+com.spring下描述了和spring集成的例子
+使用外部事务（spring事务）的例子
+controller是springmvc创建作业，修改作业，删除作业的例子
+
+job监听器的例子在com.example09下
+trigger监听器，scheduler监听器的例子在com.cookbook下

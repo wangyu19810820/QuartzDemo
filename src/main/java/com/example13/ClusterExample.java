@@ -10,6 +10,9 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+/**
+ * 集群，没细看
+ */
 public class ClusterExample {
 
     private static Logger _log = LogManager.getLogger(ClusterExample.class);

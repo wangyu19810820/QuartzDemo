@@ -7,6 +7,10 @@ import org.quartz.impl.StdSchedulerFactory;
 
 import java.util.Date;
 
+/**
+ * 给Job传递参数，并且保存到数据库中
+ * 如果这个参数要保存到数据库中，只能用jobDetail传递参数，不能用trigger
+ */
 public class JobStateExample {
 
     private static Logger log = LogManager.getLogger(JobStateExample.class);
@@ -39,8 +43,8 @@ public class JobStateExample {
                                                               .build();
         jobDetail2.getJobDataMap().put(ColorJob.FAVORITE_COLOR, "green");
         jobDetail2.getJobDataMap().put(ColorJob.EXECUTION_COUNT, 1);
-//        Date schedulerDate2 = scheduler.scheduleJob(jobDetail2, trigger2);
-//        logJobAndTriggle(jobDetail2, trigger2, schedulerDate2);
+        Date schedulerDate2 = scheduler.scheduleJob(jobDetail2, trigger2);
+        logJobAndTriggle(jobDetail2, trigger2, schedulerDate2);
 
         log.info("------- Starting Scheduler ----------------");
         scheduler.start();
