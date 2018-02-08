@@ -19,9 +19,14 @@ public class StoreTxJob implements Job {
 
     public void execute(JobExecutionContext context)
             throws JobExecutionException {
-        int value = context.getMergedJobDataMap().getInt("value");
-        _log.info("StoreTxJob! - {} - {}", new Date(), value);
-        value++;
-        context.getJobDetail().getJobDataMap().put("value", value);
+        try {
+            int value = context.getMergedJobDataMap().getInt("value");
+            _log.info("StoreTxJob! - {} - {}", new Date(), value);
+            value++;
+            context.getJobDetail().getJobDataMap().put("value", value);
+        } catch (Exception e) {
+            JobExecutionException e1 = new JobExecutionException();
+            throw e1;
+        }
     }
 }

@@ -16,15 +16,16 @@ import java.util.Date;
 public class JobStoreTXExample {
 
     public static void main(String[] args) throws Exception {
-        SchedulerFactory factory = new StdSchedulerFactory();
+        SchedulerFactory factory = new StdSchedulerFactory("quartz1.properties");
         Scheduler scheduler = factory.getScheduler();
+        scheduler.clear();
         JobDetail jobDetail = JobBuilder.newJob(StoreTxJob.class)
                                         .withIdentity("job1", "group1")
                                         .build();
         jobDetail.getJobDataMap().put("value", 1);
         Trigger trigger = TriggerBuilder.newTrigger()
-//                                        .withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
-                                        .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(10).repeatForever())
+                                        .withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ?"))
+//                                        .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(10).repeatForever())
                                         .startNow()
                                         .build();
         Date fd = scheduler.scheduleJob(jobDetail, trigger);
@@ -33,7 +34,7 @@ public class JobStoreTXExample {
         scheduler.start();
 
         try {
-            Thread.sleep(120 * 1000);
+            Thread.sleep(12000 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
